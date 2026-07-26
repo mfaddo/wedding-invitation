@@ -10,6 +10,7 @@ export class PlaybackService {
   private readonly audio = new Audio('assets/wedding-music.mp3');
   private rafId: number | null = null;
   private scrollStartTimeoutId: number | null = null;
+  private video: HTMLVideoElement | null = null;
 
   readonly playing = signal(false);
 
@@ -17,6 +18,14 @@ export class PlaybackService {
     this.audio.loop = true;
     this.audio.volume = 0.5;
     this.audio.preload = 'auto';
+
+    // Get reference to video element
+    setTimeout(() => {
+      this.video = document.querySelector('video');
+      if (this.video) {
+        this.video.muted = true;
+      }
+    }, 0);
 
     window.addEventListener('wheel', this.handleManualInput, { passive: true });
     window.addEventListener('touchstart', this.handleManualInput, { passive: true });
@@ -35,6 +44,16 @@ export class PlaybackService {
     if (this.playing()) return;
     this.playing.set(true);
     this.audio.play().catch(() => {});
+
+    // Start video playback
+    if (!this.video) {
+      this.video = document.querySelector('video');
+    }
+    if (this.video) {
+      this.video.muted = true;
+      this.video.play().catch(() => {});
+    }
+
     this.scheduleScrollStart();
   }
 
@@ -42,6 +61,12 @@ export class PlaybackService {
     if (!this.playing()) return;
     this.playing.set(false);
     this.audio.pause();
+
+    // Pause video
+    if (this.video) {
+      this.video.pause();
+    }
+
     this.cancelScheduledScrollStart();
     this.stopScrollLoop();
   }
