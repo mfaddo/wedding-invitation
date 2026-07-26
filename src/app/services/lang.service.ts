@@ -45,6 +45,8 @@ export interface Translation {
   rsvpFloat: string;
   playLabel: string;
   pauseLabel: string;
+  weddingDay: string;
+  scrollDown: string;
 }
 
 const DICT: Record<Lang, Translation> = {
@@ -93,6 +95,8 @@ const DICT: Record<Lang, Translation> = {
     rsvpFloat: 'تأكيد الحضور',
     playLabel: 'تشغيل',
     pauseLabel: 'إيقاف مؤقت',
+    weddingDay: 'يوم الزفاف',
+    scrollDown: 'اسحب لأسفل',
   },
   en: {
     introTitle: 'The Invitation',
@@ -140,6 +144,8 @@ const DICT: Record<Lang, Translation> = {
     rsvpFloat: 'RSVP',
     playLabel: 'Play',
     pauseLabel: 'Pause',
+    weddingDay: 'Wedding Day',
+    scrollDown: 'Scroll down',
   },
 };
 
