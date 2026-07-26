@@ -1,0 +1,39 @@
+@if (overlayVisible()) {
+  <div class="overlay">
+    <div class="overlay__bg"></div>
+
+    <div
+      class="door door--left"
+      [@doorLeft]="doorState()"
+      (@doorLeft.done)="onDoorAnimationDone()"
+    >
+      <div class="door__arch"></div>
+    </div>
+    <div class="door door--right" [@doorRight]="doorState()">
+      <div class="door__arch"></div>
+    </div>
+
+    <div
+      class="lock-content"
+      [@lockFade]="lockState()"
+      [class.lock-content--disabled]="appState.opened()"
+    >
+      <div
+        class="lock-content__title"
+        [style.fontFamily]="lang.fontHeading()"
+        [style.fontStyle]="lang.headingStyle()"
+      >
+        {{ lang.t().introTitle }}
+      </div>
+      <button
+        type="button"
+        class="seal"
+        [style.fontFamily]="lang.fontHeading()"
+        (click)="openDoors()"
+      >
+        {{ lang.t().saveTheDate }}
+      </button>
+      <div class="lock-content__caption">{{ lang.t().tapToOpen }}</div>
+    </div>
+  </div>
+}

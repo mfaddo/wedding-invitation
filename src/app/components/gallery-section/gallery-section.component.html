@@ -1,0 +1,10 @@
+<section class="gallery">
+  <div class="gallery__eyebrow">{{ lang.t().galleryTitle }}</div>
+  <div class="gallery__grid">
+    @for (photo of photos; track photo) {
+      <div class="gallery__tile">
+        <img [src]="photo" alt="" loading="lazy" />
+      </div>
+    }
+  </div>
+</section>

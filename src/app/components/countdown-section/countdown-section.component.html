@@ -1,0 +1,21 @@
+<section class="countdown">
+  <div class="countdown__eyebrow">{{ lang.t().countdownTitle }}</div>
+  <div class="countdown__row">
+    <div class="countdown__box">
+      <div class="countdown__value" [style.fontFamily]="lang.fontHeading()">{{ countdown.days() }}</div>
+      <div class="countdown__label">{{ lang.t().days }}</div>
+    </div>
+    <div class="countdown__box">
+      <div class="countdown__value" [style.fontFamily]="lang.fontHeading()">{{ countdown.hours() }}</div>
+      <div class="countdown__label">{{ lang.t().hours }}</div>
+    </div>
+    <div class="countdown__box">
+      <div class="countdown__value" [style.fontFamily]="lang.fontHeading()">{{ countdown.mins() }}</div>
+      <div class="countdown__label">{{ lang.t().mins }}</div>
+    </div>
+    <div class="countdown__box">
+      <div class="countdown__value" [style.fontFamily]="lang.fontHeading()">{{ countdown.secs() }}</div>
+      <div class="countdown__label">{{ lang.t().secs }}</div>
+    </div>
+  </div>
+</section>

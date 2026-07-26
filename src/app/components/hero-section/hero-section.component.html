@@ -1,0 +1,16 @@
+<section class="hero">
+  <div class="hero__eyebrow">{{ lang.t().heroInvite }}</div>
+  <h1
+    class="hero__names"
+    [style.fontFamily]="lang.fontHeading()"
+    [style.fontStyle]="lang.headingStyle()"
+  >
+    {{ lang.t().coupleNames }}
+  </h1>
+  <div class="hero__divider"></div>
+  <div class="hero__date">{{ lang.t().dateLine }}</div>
+  <div class="hero__time">{{ lang.t().time }}</div>
+  <div class="hero__venue">{{ lang.t().venue }}</div>
+  <div class="hero__address">{{ lang.t().address }}</div>
+  <a class="hero__map-btn" [href]="mapHref()" target="_blank" rel="noopener">{{ lang.t().mapBtn }}</a>
+</section>

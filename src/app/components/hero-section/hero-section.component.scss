@@ -1,0 +1,68 @@
+.hero {
+  position: relative;
+  padding: 70px 24px 50px;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 15% 10%, rgba(232, 211, 174, 0.7) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(220, 199, 154, 0.6) 0%, transparent 45%);
+}
+
+.hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #b08d57;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero__names {
+  font-size: 38px;
+  color: #6b5330;
+  margin: 0 0 6px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hero__divider {
+  width: 60px;
+  height: 1px;
+  background: #c9a25d;
+  margin: 18px auto;
+}
+
+.hero__date {
+  font-size: 16px;
+  color: #7a6240;
+  margin-bottom: 6px;
+}
+
+.hero__time {
+  font-size: 15px;
+  color: #7a6240;
+  margin-bottom: 22px;
+}
+
+.hero__venue {
+  font-size: 17px;
+  color: #6b5330;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.hero__address {
+  font-size: 14px;
+  color: #8a7350;
+  margin-bottom: 22px;
+}
+
+.hero__map-btn {
+  display: inline-block;
+  padding: 11px 26px;
+  border: 1px solid #b08d57;
+  border-radius: 999px;
+  color: #8a6d3b;
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.5);
+}

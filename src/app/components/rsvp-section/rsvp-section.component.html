@@ -1,0 +1,60 @@
+<section id="rsvp-section" class="rsvp">
+  <div class="rsvp__container">
+    <div class="rsvp__eyebrow">{{ lang.t().rsvpTitle }}</div>
+
+    @if (!rsvpSubmitted()) {
+      <form class="rsvp__form" (submit)="submit($event)">
+        <label class="rsvp__field">
+          {{ lang.t().nameLabel }}
+          <input
+            class="rsvp__input"
+            [ngModel]="rsvpName()"
+            (ngModelChange)="rsvpName.set($event)"
+            name="rsvpName"
+            required
+          />
+        </label>
+
+        <div class="rsvp__field">
+          {{ lang.t().attendingLabel }}
+          <div class="rsvp__attending-row">
+            <button
+              type="button"
+              class="rsvp__attending-btn"
+              [class.rsvp__attending-btn--selected]="rsvpAttending() === 'yes'"
+              (click)="setAttendingYes()"
+            >
+              {{ lang.t().yes }}
+            </button>
+            <button
+              type="button"
+              class="rsvp__attending-btn"
+              [class.rsvp__attending-btn--selected]="rsvpAttending() === 'no'"
+              (click)="setAttendingNo()"
+            >
+              {{ lang.t().no }}
+            </button>
+          </div>
+        </div>
+
+        @if (showGuestsField()) {
+          <label class="rsvp__field">
+            {{ lang.t().guestsLabel }}
+            <input
+              class="rsvp__input"
+              type="number"
+              min="1"
+              [ngModel]="rsvpGuests()"
+              (ngModelChange)="onGuestsChange($event)"
+              name="rsvpGuests"
+            />
+          </label>
+        }
+
+        <button type="submit" class="rsvp__submit">{{ lang.t().submit }}</button>
+      </form>
+    } @else {
+      <div class="rsvp__thank-you">{{ lang.t().thankYou }}</div>
+    }
+  </div>
+</section>

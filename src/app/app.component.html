@@ -1,0 +1,55 @@
+<div class="app" [attr.dir]="lang.dir()" [style.fontFamily]="lang.fontBody()">
+  <div
+    class="lang-toggle"
+    [style.right]="lang.cornerSide() === 'right' ? '16px' : 'auto'"
+    [style.left]="lang.cornerSide() === 'left' ? '16px' : 'auto'"
+  >
+    <button type="button" class="lang-toggle__btn" (click)="lang.toggle()">
+      {{ lang.toggleLabel() }}
+    </button>
+  </div>
+
+  <app-intro-overlay />
+
+  <div class="app__content">
+    <app-hero-section />
+    <app-countdown-section />
+    <app-invitation-card />
+    <app-gallery-section />
+    <app-blessing-section />
+    <app-rsvp-section />
+  </div>
+
+  @if (appState.opened()) {
+    <button
+      type="button"
+      class="floating-rsvp"
+      [style.right]="lang.cornerSide() === 'right' ? '22px' : 'auto'"
+      [style.left]="lang.cornerSide() === 'left' ? '22px' : 'auto'"
+      (click)="appState.scrollToRsvp()"
+    >
+      {{ lang.t().rsvpFloat }}
+    </button>
+
+    <button
+      type="button"
+      class="playback-toggle"
+      data-playback-control
+      [style.left]="lang.cornerSide() === 'right' ? '22px' : 'auto'"
+      [style.right]="lang.cornerSide() === 'left' ? '22px' : 'auto'"
+      [attr.aria-label]="playback.playing() ? lang.t().pauseLabel : lang.t().playLabel"
+      (click)="playback.toggle()"
+    >
+      @if (playback.playing()) {
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <rect x="5" y="4" width="5" height="16" rx="1" />
+          <rect x="14" y="4" width="5" height="16" rx="1" />
+        </svg>
+      } @else {
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M7 4.5v15l14-7.5-14-7.5Z" />
+        </svg>
+      }
+    </button>
+  }
+</div>

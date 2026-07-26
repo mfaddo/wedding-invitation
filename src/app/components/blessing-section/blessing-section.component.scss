@@ -1,0 +1,26 @@
+.blessing {
+  padding: 30px 30px 40px;
+  text-align: center;
+  background: radial-gradient(circle at 30% 20%, rgba(232, 211, 174, 0.6) 0%, transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(220, 199, 154, 0.5) 0%, transparent 45%);
+}
+
+.blessing__text {
+  font-size: 19px;
+  color: #6b5330;
+  line-height: 1.9;
+  max-width: 420px;
+  margin: 0 auto 26px;
+}
+
+.blessing__note {
+  font-size: 12px;
+  color: #8a7350;
+  line-height: 1.9;
+  max-width: 400px;
+  margin: 0 auto 12px;
+
+  &--last {
+    margin-bottom: 0;
+  }
+}
