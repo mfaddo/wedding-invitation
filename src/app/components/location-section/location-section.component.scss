@@ -1,0 +1,168 @@
+.location {
+  position: relative;
+  padding: 60px 30px 40px;
+  margin-top: 40px;
+  text-align: center;
+  background: radial-gradient(circle at 30% 20%, rgba(232, 211, 174, 0.6) 0%, transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(220, 199, 154, 0.5) 0%, transparent 45%);
+}
+
+.location__icon {
+  color: #a0826d;
+  margin-bottom: 15px;
+}
+
+.location__title {
+  font-size: 28px;
+  color: #8a7350;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.location__venue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6b5330;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.location__address {
+  font-size: 13px;
+  color: #8a7350;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto 30px;
+}
+
+.location__images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.location__image-placeholder {
+  flex: 1;
+  min-width: 250px;
+  max-width: 420px;
+  aspect-ratio: 4 / 3;
+  background-color: #f0f0f0;
+  border: 2px solid #d4c5b3;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+.location__map-container {
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.location__map {
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+
+.location__map-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: #c9a961;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #b39451;
+  }
+}
+
+@media (max-width: 768px) {
+  .location__title {
+    font-size: 24px;
+  }
+
+  .location__icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .location__images {
+    gap: 15px;
+  }
+
+  .location__image-placeholder {
+    min-width: 200px;
+    max-width: 350px;
+  }
+
+  .location__map {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .location {
+    padding: 50px 20px 30px;
+    margin-top: 30px;
+  }
+
+  .location__icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .location__title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .location__venue {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .location__address {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .location__images {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .location__image-placeholder {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .location__map {
+    height: 200px;
+  }
+
+  .location__map-btn {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+}

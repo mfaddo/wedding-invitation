@@ -8,6 +8,7 @@ import { CountdownSectionComponent } from './components/countdown-section/countd
 import { InvitationCardComponent } from './components/invitation-card/invitation-card.component';
 import { GallerySectionComponent } from './components/gallery-section/gallery-section.component';
 import { BlessingSectionComponent } from './components/blessing-section/blessing-section.component';
+import { LocationSectionComponent } from './components/location-section/location-section.component';
 import { RsvpSectionComponent } from './components/rsvp-section/rsvp-section.component';
 
 @Component({
@@ -20,6 +21,7 @@ import { RsvpSectionComponent } from './components/rsvp-section/rsvp-section.com
     InvitationCardComponent,
     GallerySectionComponent,
     BlessingSectionComponent,
+    LocationSectionComponent,
     RsvpSectionComponent,
   ],
   templateUrl: './app.component.html',

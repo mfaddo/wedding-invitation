@@ -1,0 +1,58 @@
+<section class="location">
+  <svg
+    class="location__icon"
+    [class.location__icon--rtl]="lang.isRtl()"
+    viewBox="0 0 24 24"
+    width="80"
+    height="80"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    aria-hidden="true"
+  >
+    <path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 8 13 8 13s8-7.75 8-13c0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+  </svg>
+
+  <div
+    class="location__title"
+    [style.fontFamily]="lang.fontHeading()"
+    [style.fontStyle]="lang.headingStyle()"
+  >
+    {{ lang.t().location }}
+  </div>
+
+  <div class="location__venue">{{ lang.t().locationName }}</div>
+
+  <div class="location__address">{{ lang.t().locationAddress }}</div>
+
+  <div class="location__images">
+    <div class="location__image-placeholder">
+      <img src="assets/images/wedding-plcae-1.jpeg" alt="" />
+    </div>
+    <div class="location__image-placeholder">
+      <img src="assets/images/wedding-plcae-2.jpeg" alt="" />
+    </div>
+  </div>
+
+  <div class="location__map-container">
+    <iframe
+      class="location__map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-73.5267!3d40.8267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c27b5e8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2s118%20Old%20East%20Neck%20Road%2C%20Melville%2C%20NY%2011747!5e0!3m2!1sen!2sus!4v1234567890"
+      width="100%"
+      height="400"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  <a
+    href="https://www.google.com/maps/search/118+Old+East+Neck+Road+Melville+NY+11747"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="location__map-btn"
+  >
+    {{ lang.t().mapBtn }}
+  </a>
+</section>

@@ -2,38 +2,81 @@
   <div class="overlay">
     <div class="overlay__bg"></div>
 
-    <div
-      class="door door--left"
-      [@doorLeft]="doorState()"
-      (@doorLeft.done)="onDoorAnimationDone()"
-    >
-      <div class="door__arch"></div>
-    </div>
-    <div class="door door--right" [@doorRight]="doorState()">
-      <div class="door__arch"></div>
-    </div>
-
-    <div
-      class="lock-content"
-      [@lockFade]="lockState()"
-      [class.lock-content--disabled]="appState.opened()"
-    >
-      <div
-        class="lock-content__title"
-        [style.fontFamily]="lang.fontHeading()"
-        [style.fontStyle]="lang.headingStyle()"
-      >
-        {{ lang.t().introTitle }}
+    <div class="envelope-wrapper" [class.envelope-wrapper--opened]="appState.opened()">
+      <!-- Light rays effect -->
+      <div class="envelope-lights" [class.envelope-lights--active]="flapState() === 'open'">
+        <div class="light light--1"></div>
+        <div class="light light--2"></div>
+        <div class="light light--3"></div>
+        <div class="light light--4"></div>
+        <div class="light light--5"></div>
+        <div class="light light--6"></div>
+        <div class="light light--7"></div>
+        <div class="light light--8"></div>
       </div>
-      <button
-        type="button"
-        class="seal"
-        [style.fontFamily]="lang.fontHeading()"
-        (click)="openDoors()"
+
+      <!-- Main Envelope Body -->
+      <div class="envelope" [class.envelope--opened]="appState.opened()">
+        <!-- Back of envelope -->
+        <div class="envelope__back"></div>
+
+        <!-- Front of envelope (shows when closed, hidden when open) -->
+        <div class="envelope__front">
+          <!-- Top left rose -->
+          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--tl" />
+
+          <!-- Top right rose -->
+          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--tr" />
+
+          <!-- Bottom left rose -->
+          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--bl" />
+
+          <!-- Bottom right rose -->
+          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--br" />
+        </div>
+
+        <!-- Flap that opens -->
+        <div
+          class="envelope__flap"
+          [@flapOpen]="flapState()"
+          (@flapOpen.done)="onFlapAnimationDone()"
+        ></div>
+
+        <!-- Left fold shadow -->
+        <div class="envelope__fold-shadow envelope__fold-shadow--left"></div>
+        <!-- Right fold shadow -->
+        <div class="envelope__fold-shadow envelope__fold-shadow--right"></div>
+      </div>
+
+      <!-- Content (Title, Button, Caption) -->
+      <div
+        class="envelope-content"
+        [@contentFade]="contentState()"
+        [class.envelope-content--disabled]="appState.opened()"
       >
-        {{ lang.t().saveTheDate }}
-      </button>
-      <div class="lock-content__caption">{{ lang.t().tapToOpen }}</div>
+        <div
+          class="envelope-content__title"
+          [style.fontFamily]="lang.fontHeading()"
+          [style.fontStyle]="lang.headingStyle()"
+        >
+          {{ lang.t().introTitle }}
+        </div>
+        <button
+          type="button"
+          class="seal"
+          (click)="openEnvelope()"
+        >
+          @if (lang.isRtl()) {
+            <span class="seal__text-wrapper">
+              <span class="seal__letter seal__letter--top">م</span>
+              <span class="seal__letter seal__letter--bottom">م</span>
+            </span>
+          } @else {
+            <span [style.fontFamily]="lang.fontHeading()">{{ lang.t().saveTheDate }}</span>
+          }
+        </button>
+        <div class="envelope-content__caption">{{ lang.t().tapToOpen }}</div>
+      </div>
     </div>
   </div>
 }

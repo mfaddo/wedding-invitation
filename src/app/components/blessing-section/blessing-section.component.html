@@ -1,4 +1,23 @@
 <section class="blessing">
+  <div class="blessing__flowers">
+    <div
+      *ngFor="let flower of flowers"
+      class="flower"
+      [style.--delay]="flower.delay + 's'"
+      [style.--duration]="flower.duration + 's'"
+      [style.--x-start]="flower.xStart + '%'"
+      [style.--x-end]="flower.xEnd + '%'"
+    >
+      <img src="assets/images/rose.webp" alt="Falling flower" class="flower__image" />
+    </div>
+  </div>
+
+  <img
+    class="blessing__decoration"
+    [class.blessing__decoration--rtl]="lang.isRtl()"
+    src="assets/images/topright.webp"
+    alt="Floral decoration"
+  />
   <div
     class="blessing__text"
     [style.fontFamily]="lang.fontHeading()"

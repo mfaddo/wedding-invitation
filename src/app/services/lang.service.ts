@@ -34,6 +34,9 @@ export interface Translation {
   blessing: string;
   childrenNote: string;
   noPhotoNote: string;
+  location: string;
+  locationName: string;
+  locationAddress: string;
   rsvpTitle: string;
   nameLabel: string;
   attendingLabel: string;
@@ -52,7 +55,7 @@ export interface Translation {
 const DICT: Record<Lang, Translation> = {
   ar: {
     introTitle: 'الدعوة',
-    saveTheDate: 'احفظوا التاريخ',
+    saveTheDate: 'م  م',
     tapToOpen: 'اضغط للفتح',
     heroInvite: 'بكل حب وسرور ندعوكم لحضور حفل زفافنا',
     coupleNames: 'محمود فضو و مروة الملحم',
@@ -84,6 +87,9 @@ const DICT: Record<Lang, Translation> = {
       'بارك الله لهما وبارك عليهما وجمع بينهما في خير، نتطلع لرؤيتكم ومشاركتكم هذه المناسبة السعيدة',
     childrenNote: 'نأسف، لا يُسمح باصطحاب الأطفال في هذه المناسبة، دون استثناء.',
     noPhotoNote: 'حرصاً على راحة وخصوصية ضيوفنا، نرجو عدم استخدام كاميرات الهواتف أثناء الحفل.',
+    location: 'الموقع',
+    locationName: 'Islamic Center of Melville',
+    locationAddress: 'Address: 118 Old East Neck Road Melville, NY 11747',
     rsvpTitle: 'تأكيد الحضور',
     nameLabel: 'الاسم',
     attendingLabel: 'هل ستحضر؟',
@@ -100,7 +106,7 @@ const DICT: Record<Lang, Translation> = {
   },
   en: {
     introTitle: 'The Invitation',
-    saveTheDate: 'Save the Date',
+    saveTheDate: 'M&M',
     tapToOpen: 'Tap to Open',
     heroInvite: 'With love and joy, we invite you to celebrate our wedding',
     coupleNames: 'Mahmoud Faddo & Marwa Al Melhem',
@@ -133,6 +139,9 @@ const DICT: Record<Lang, Translation> = {
     childrenNote: 'We kindly ask that children not attend this event, without exception.',
     noPhotoNote:
       'For the comfort and privacy of our guests, please refrain from using phone cameras during the ceremony.',
+    location: 'Location',
+    locationName: 'Islamic Center of Melville',
+    locationAddress: 'Address: 118 Old East Neck Road Melville, NY 11747',
     rsvpTitle: 'RSVP',
     nameLabel: 'Your name',
     attendingLabel: 'Will you attend?',

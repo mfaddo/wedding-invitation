@@ -1,8 +1,19 @@
 .blessing {
+  position: relative;
   padding: 30px 30px 40px;
   text-align: center;
   background: radial-gradient(circle at 30% 20%, rgba(232, 211, 174, 0.6) 0%, transparent 45%),
     radial-gradient(circle at 80% 85%, rgba(220, 199, 154, 0.5) 0%, transparent 45%);
+  overflow: hidden;
+}
+
+.blessing__flowers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
 }
 
 .blessing__text {
@@ -22,5 +33,74 @@
 
   &--last {
     margin-bottom: 0;
+  }
+}
+
+.blessing__decoration {
+  position: absolute;
+  top: -25px;
+  left: -75px;
+  max-width: 200px;
+  height: auto;
+  pointer-events: none;
+
+  &--rtl {
+    left: auto;
+    right: -75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blessing__decoration {
+    max-width: 140px;
+    top: -15px;
+    left: -50px;
+
+    &--rtl {
+      right: -50px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .blessing__decoration {
+    max-width: 100px;
+    top: -10px;
+    left: -10px;
+
+    &--rtl {
+      right: -10px;
+    }
+  }
+}
+
+.flower {
+  position: absolute;
+  opacity: 0.7;
+  animation: float var(--duration) ease-in-out var(--delay) infinite;
+  left: var(--x-start);
+  top: -30px;
+
+  &__image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(600px) translateX(calc(var(--x-end) - var(--x-start))) rotate(360deg);
+    opacity: 0;
   }
 }

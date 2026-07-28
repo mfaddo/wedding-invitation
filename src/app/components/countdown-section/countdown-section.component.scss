@@ -1,39 +1,123 @@
 .countdown {
-  padding: 36px 24px;
+  padding: 50px 24px;
   text-align: center;
 }
 
 .countdown__eyebrow {
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 13px;
+  letter-spacing: 3px;
   color: #b08d57;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 32px;
+  font-weight: 500;
 }
 
 .countdown__row {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .countdown__box {
-  width: 70px;
-  padding: 14px 0;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(201, 162, 93, 0.4);
-  border-radius: 12px;
+  position: relative;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Circular elegant background */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.5) 100%);
+  border-radius: 50%;
+
+  /* Decorative border with gradient */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+
+  /* Shadow for depth */
+  box-shadow:
+    0 8px 24px rgba(107, 83, 48, 0.12),
+    0 2px 6px rgba(176, 141, 87, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+
+  /* Decorative outer ring */
+  outline: 1px solid rgba(176, 141, 87, 0.3);
+  outline-offset: -6px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a25d 0%, #b08d57 100%);
+    z-index: -1;
+    opacity: 0.25;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 12px 32px rgba(107, 83, 48, 0.18),
+      0 4px 8px rgba(176, 141, 87, 0.2),
+      inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
 }
 
 .countdown__value {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: 700;
   color: #6b5330;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
 .countdown__label {
   font-size: 11px;
   color: #8a7350;
-  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.countdown__flowers {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.countdown__flower {
+  position: absolute;
+  opacity: 0.8;
+  animation: countdownFloat var(--duration) ease-in-out var(--delay) infinite;
+  left: var(--x-start);
+  top: -20px;
+}
+
+.countdown__flower-image {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+@keyframes countdownFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100px) translateX(calc(var(--x-end) - var(--x-start))) rotate(360deg);
+    opacity: 0;
+  }
 }
