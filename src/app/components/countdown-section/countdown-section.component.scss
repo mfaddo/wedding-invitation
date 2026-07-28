@@ -121,3 +121,22 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 600px) {
+  .countdown__row {
+    gap: 12px;
+  }
+
+  .countdown__box {
+    width: 60px;
+    height: 60px;
+  }
+
+  .countdown__value {
+    font-size: 20px;
+  }
+
+  .countdown__label {
+    font-size: 10px;
+  }
+}

@@ -23,6 +23,11 @@ import { PlaybackService } from '../../services/playback.service';
       state('hidden', style({ opacity: 0 })),
       transition('visible => hidden', animate('0.6s ease-in')),
     ]),
+    trigger('overlayFade', [
+      state('visible', style({ opacity: 1 })),
+      state('hidden', style({ opacity: 0 })),
+      transition('visible => hidden', animate('1s ease-out')),
+    ]),
   ],
 })
 export class IntroOverlayComponent {
@@ -31,6 +36,7 @@ export class IntroOverlayComponent {
   private readonly playback = inject(PlaybackService);
 
   readonly overlayVisible = signal(true);
+  readonly overlayFading = signal(false);
   readonly sealFontFamily = computed(() =>
     this.lang.isRtl() ? "'Amiri', 'Traditional Arabic', serif" : this.lang.fontHeading()
   );
@@ -38,6 +44,9 @@ export class IntroOverlayComponent {
   readonly flapState = computed<'closed' | 'open'>(() => (this.appState.opened() ? 'open' : 'closed'));
   readonly contentState = computed<'visible' | 'hidden'>(() =>
     this.appState.opened() ? 'hidden' : 'visible'
+  );
+  readonly overlayState = computed<'visible' | 'hidden'>(() =>
+    this.overlayFading() ? 'hidden' : 'visible'
   );
 
   openEnvelope(): void {
@@ -47,7 +56,10 @@ export class IntroOverlayComponent {
 
   onFlapAnimationDone(): void {
     if (this.appState.opened()) {
-      this.overlayVisible.set(false);
+      this.overlayFading.set(true);
+      setTimeout(() => {
+        this.overlayVisible.set(false);
+      }, 1000);
     }
   }
 }

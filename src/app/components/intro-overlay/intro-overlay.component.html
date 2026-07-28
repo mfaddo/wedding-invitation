@@ -1,5 +1,5 @@
 @if (overlayVisible()) {
-  <div class="overlay">
+  <div class="overlay" [@overlayFade]="overlayState()">
     <div class="overlay__bg"></div>
 
     <div class="envelope-wrapper" [class.envelope-wrapper--opened]="appState.opened()">
@@ -21,19 +21,19 @@
         <div class="envelope__back"></div>
 
         <!-- Front of envelope (shows when closed, hidden when open) -->
-        <div class="envelope__front">
-          <!-- Top left rose -->
-          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--tl" />
+        <div class="envelope__front"></div>
 
-          <!-- Top right rose -->
-          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--tr" />
+        <!-- Top left rose -->
+        <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--tl" />
 
-          <!-- Bottom left rose -->
-          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--bl" />
+        <!-- Top right rose -->
+        <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--tr" />
 
-          <!-- Bottom right rose -->
-          <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--br" />
-        </div>
+        <!-- Bottom left rose -->
+        <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--bl" />
+
+        <!-- Bottom right rose -->
+        <img src="assets/images/rose.webp" alt="Rose" class="envelope__rose envelope__rose--br" />
 
         <!-- Flap that opens -->
         <div
