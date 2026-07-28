@@ -43,6 +43,7 @@ export class PlaybackService {
   play(): void {
     if (this.playing()) return;
     this.playing.set(true);
+    this.audio.muted = false;
     this.audio.play().catch(() => {});
 
     // Start video playback
@@ -55,6 +56,24 @@ export class PlaybackService {
     }
 
     this.scheduleScrollStart();
+  }
+
+  playAndScroll(): void {
+    if (this.playing()) return;
+    this.playing.set(true);
+    this.audio.muted = false;
+    this.audio.play().catch(() => {});
+
+    // Start video playback
+    if (!this.video) {
+      this.video = document.querySelector('video');
+    }
+    if (this.video) {
+      this.video.muted = true;
+      this.video.play().catch(() => {});
+    }
+
+    this.startScrollLoop();
   }
 
   pause(): void {

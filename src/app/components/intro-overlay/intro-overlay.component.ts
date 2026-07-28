@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal, AfterViewInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal, AfterViewInit, DestroyRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { LangService } from '../../services/lang.service';
@@ -34,6 +34,7 @@ export class IntroOverlayComponent implements AfterViewInit {
   readonly lang = inject(LangService);
   readonly appState = inject(AppStateService);
   private readonly playback = inject(PlaybackService);
+  private readonly destroyRef = inject(DestroyRef);
 
   readonly overlayVisible = signal(true);
   readonly overlayFading = signal(false);
@@ -50,14 +51,22 @@ export class IntroOverlayComponent implements AfterViewInit {
   );
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.openEnvelope();
-    }, 500);
+    const handleClick = () => {
+      if (!this.appState.opened()) {
+        this.openEnvelope();
+        document.removeEventListener('click', handleClick);
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+
+    this.destroyRef.onDestroy(() => {
+      document.removeEventListener('click', handleClick);
+    });
   }
 
   openEnvelope(): void {
     this.appState.openDoors();
-    this.playback.play();
   }
 
   onFlapAnimationDone(): void {
@@ -65,6 +74,7 @@ export class IntroOverlayComponent implements AfterViewInit {
       this.overlayFading.set(true);
       setTimeout(() => {
         this.overlayVisible.set(false);
+        this.playback.playAndScroll();
       }, 1000);
     }
   }
