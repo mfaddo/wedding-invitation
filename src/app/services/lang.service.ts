@@ -17,7 +17,7 @@ export interface Translation {
   mapBtn: string;
   verse: string;
   verseReference: string;
-  familyLine: string;
+  dateIntro: string;
   dayLabel: string;
   dayName: string;
   dayNumber: string;
@@ -70,7 +70,7 @@ const DICT: Record<Lang, Translation> = {
     verse:
       'وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً',
     verseReference: 'سورة الروم - 21',
-    familyLine: 'على أنغام الفرح وتحت سماء تزينها السعادة بكل الحب يسر\nآل فضو و آل الملحم\nأن يدعوكم لحفل زفاف نجليهما',
+    dateIntro: 'لحظات الفرح اختارت من عمرنا موعدا',
     dayLabel: 'يوم',
     dayName: 'الثلاثاء',
     dayNumber: '11',
@@ -122,7 +122,7 @@ const DICT: Record<Lang, Translation> = {
     verse:
       'And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them, and He placed between you love and mercy.',
     verseReference: 'Surah Ar-Rum — 21',
-    familyLine: "To the melodies of joy and under skies adorned with happiness, with all our love,\nthe Faddo and Al Melhem families\njoyfully invite you to the wedding celebration of their children",
+    dateIntro: 'Moments of joy have chosen a time from our lives',
     dayLabel: 'Day',
     dayName: 'Tuesday',
     dayNumber: '11',

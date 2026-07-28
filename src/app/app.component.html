@@ -18,19 +18,9 @@
     <app-gallery-section />
     <app-blessing-section />
     <app-location-section />
-    <app-rsvp-section />
   </div>
 
   @if (appState.opened()) {
-    <button
-      type="button"
-      class="floating-rsvp"
-      [style.right]="lang.cornerSide() === 'right' ? '22px' : 'auto'"
-      [style.left]="lang.cornerSide() === 'left' ? '22px' : 'auto'"
-      (click)="appState.scrollToRsvp()"
-    >
-      {{ lang.t().rsvpFloat }}
-    </button>
 
     <button
       type="button"

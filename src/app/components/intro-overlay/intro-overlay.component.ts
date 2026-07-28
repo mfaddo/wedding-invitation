@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { LangService } from '../../services/lang.service';
@@ -30,7 +30,7 @@ import { PlaybackService } from '../../services/playback.service';
     ]),
   ],
 })
-export class IntroOverlayComponent {
+export class IntroOverlayComponent implements AfterViewInit {
   readonly lang = inject(LangService);
   readonly appState = inject(AppStateService);
   private readonly playback = inject(PlaybackService);
@@ -48,6 +48,12 @@ export class IntroOverlayComponent {
   readonly overlayState = computed<'visible' | 'hidden'>(() =>
     this.overlayFading() ? 'hidden' : 'visible'
   );
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.openEnvelope();
+    }, 500);
+  }
 
   openEnvelope(): void {
     this.appState.openDoors();

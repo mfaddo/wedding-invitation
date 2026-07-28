@@ -41,6 +41,17 @@
   }
 }
 
+@keyframes slideInCenter {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero {
   position: relative;
   height: 100vh;
@@ -215,61 +226,15 @@
   }
 }
 
-// Top Section - Wedding Day Label
-.hero__top-section {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 30px;
-  animation: fadeInDown 0.8s ease-out;
-}
-
-.hero__label {
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(176, 141, 87, 0.8);
-  font-weight: 600;
-}
-
 .hero__top-date {
-  font-size: 18px;
-  color: rgba(107, 83, 48, 0.7);
-  letter-spacing: 1px;
-}
-
-// Names Section
-.hero__names-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin: 20px 0;
-  animation: fadeInUp 1s ease-out 0.2s both;
-}
-
-.hero__names {
-  font-size: 48px;
-  color: rgba(107, 83, 48, 0.85);
-  margin: 0;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 1px;
-
-  @media (max-width: 768px) {
-    font-size: 36px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 28px;
-  }
-}
-
-.hero__names-divider {
-  width: 50px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(176, 141, 87, 0.5), transparent);
-  animation: fadeInUp 1.2s ease-out 0.4s both;
+    font-size: 27px;
+    color: #806c4e;
+    letter-spacing: 1px;
+   font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    line-height: 1.7;
+    max-width: 320PX;
+    animation: slideInCenter 1.5s cubic-bezier(0.65, 0, 0.35, 1) 3.2s both;
 }
 
 // Details Section
@@ -277,8 +242,9 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 40px;
-  animation: fadeInUp 1s ease-out 0.4s both;
+  align-items: center;
+  justify-content: center;
+  margin-top: -80px;
 }
 
 .hero__time {

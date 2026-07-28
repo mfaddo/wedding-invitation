@@ -44,6 +44,21 @@ export class InvitationCardComponent implements OnInit {
     this.generateFlowers();
   }
 
+  getFamilyLine(): { line1: string; families: { right: string; left: string }; line3: string } {
+    if (this.lang.isRtl()) {
+      return {
+        line1: 'على أنغام الفرح وتحت سماء تزينها السعادة بكل الحب يسر',
+        families: { right: 'ال فضو', left: 'ال الملحم' },
+        line3: 'أن يدعوكم لحفل زفاف نجليهما',
+      };
+    }
+    return {
+      line1: 'To the melodies of joy and under skies adorned with happiness, with all our love,',
+      families: { right: 'the Faddo', left: 'and Al Melhem families' },
+      line3: 'joyfully invite you to the wedding celebration of their children',
+    };
+  }
+
   private generateFlowers(): void {
     const flowerCount = 6;
     for (let i = 0; i < flowerCount; i++) {

@@ -31,7 +31,7 @@
       <div style="position: relative; z-index: 1;">
         <div
           [style.fontFamily]="lang.fontHeading()"
-          style="font-size: 16px; letter-spacing: 2px; color: #8A6D3B; margin-bottom: 12px;"
+          style="font-size: 24px; letter-spacing: 2px; color: #8A6D3B; margin-bottom: 16px;"
         >
           بسم الله الرحمن الرحيم
         </div>
@@ -39,13 +39,24 @@
         <div
           [style.fontFamily]="lang.fontHeading()"
           [style.fontStyle]="lang.headingStyle()"
-          style="font-size: 12px; color: #9A8459; line-height: 1.9; max-width: 300px; margin: 0 auto;"
+          style="font-size: 18px; color: #9A8459; line-height: 1.9; max-width: 300px; margin: 0 auto;"
         >
           {{ lang.t().verse }}
         </div>
 
-        <div style="font-size: 12px; color: #7A6240; line-height: 1.8; max-width: 300px; margin: 12px auto 18px;">
-          {{ lang.t().familyLine }}
+        <div style="font-size: 18px; color: #7A6240; line-height: 1.8; max-width: 300px; margin: 12px auto 18px;">
+          <div>{{ getFamilyLine().line1 }}</div>
+          <div style="margin: 8px 0;">
+            @if (lang.isRtl()) {
+              <span style="font-weight: 900; color: #6B5330;">{{ getFamilyLine().families.right }}</span>
+              <span> و </span>
+              <span style="font-weight: 900; color: #6B5330;">{{ getFamilyLine().families.left }}</span>
+            } @else {
+              <span style="font-weight: 900; color: #6B5330;">{{ getFamilyLine().families.right }}</span>
+              <span> {{ getFamilyLine().families.left }}</span>
+            }
+          </div>
+          <div>{{ getFamilyLine().line3 }}</div>
         </div>
 
         <div
@@ -71,17 +82,17 @@
             <div
               style="color: #A6813C; line-height: 1.35; letter-spacing: 0.5px; white-space: nowrap;"
               [style.fontFamily]="lang.fontNames()"
-              [style.fontSize.px]="lang.isRtl() ? 22 : 24"
+              [style.fontSize.px]="lang.isRtl() ? 30 : 34"
             >
               {{ lang.t().groomName }}
             </div>
-            <div style="font-family: 'Great Vibes', cursive; font-size: 26px; color: #B08D57; margin: 6px 0;">
+            <div style="font-family: 'Great Vibes', cursive; font-size: 36px; color: #B08D57; margin: 6px 0;">
               &amp;
             </div>
             <div
               style="color: #A6813C; line-height: 1.35; letter-spacing: 0.5px; white-space: nowrap;"
               [style.fontFamily]="lang.fontNames()"
-              [style.fontSize.px]="lang.isRtl() ? 22 : 24"
+              [style.fontSize.px]="lang.isRtl() ? 30 : 34"
             >
               {{ lang.t().brideName }}
             </div>
@@ -90,26 +101,30 @@
 
         <div style="width: 36px; height: 1px; background: #C9A25D; margin: 18px auto 20px;"></div>
 
-        <div style="display: flex; align-items: center; justify-content: center; margin: 16px auto 18px; max-width: 300px;">
-          <div style="flex: 1; padding: 0 10px;">
-            <div style="font-size: 12px; color: #8A7350; letter-spacing: 1px;">{{ lang.t().dayLabel }}</div>
-            <div style="font-size: 15px; font-weight: 600; color: #6B5330; margin-top: 4px;">{{ lang.t().dayName }}</div>
+        <div style="font-size: 16px; color: #7A6240; line-height: 1.6; max-width: 300px; margin: 0 auto 16px;">
+          {{ lang.t().dateIntro }}
+        </div>
+
+        <div style="display: flex; align-items: flex-start; justify-content: center; margin: 16px auto 18px; max-width: 300px;">
+          <div style="flex: 1; padding: 0 10px; display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 16px; font-weight: 900; color: #6B5330; letter-spacing: 1px;">{{ lang.t().dayLabel }}</div>
+            <div style="font-size: 20px; font-weight: 900; color: #6B5330; margin-top: 4px;">{{ lang.t().dayName }}</div>
           </div>
           <div style="width: 1px; height: 46px; background: rgba(201, 162, 93, 0.6);"></div>
-          <div style="flex: 1; padding: 0 10px;">
-            <div style="font-size: 17px; font-weight: 600; color: #6B5330; line-height: 1.35;">{{ lang.t().dayNumber }}</div>
-            <div style="font-size: 14px; color: #6B5330; line-height: 1.35;">{{ lang.t().monthName }}</div>
-            <div style="font-size: 14px; color: #6B5330; line-height: 1.35;">{{ lang.t().yearValue }}</div>
+          <div style="flex: 1; padding: 0 10px; display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 22px; font-weight: 900; color: #6B5330; line-height: 1.35;">{{ lang.t().dayNumber }}</div>
+            <div style="font-size: 18px; font-weight: 900; color: #6B5330; line-height: 1.35;">{{ lang.t().monthName }}</div>
+            <div style="font-size: 18px; font-weight: 900; color: #6B5330; line-height: 1.35;">{{ lang.t().yearValue }}</div>
           </div>
           <div style="width: 1px; height: 46px; background: rgba(201, 162, 93, 0.6);"></div>
-          <div style="flex: 1; padding: 0 10px;">
-            <div style="font-size: 12px; color: #8A7350; letter-spacing: 1px;">{{ lang.t().hourLabel }}</div>
-            <div style="font-size: 15px; font-weight: 600; color: #6B5330; margin-top: 4px;">{{ lang.t().hourValue }}</div>
+          <div style="flex: 1; padding: 0 10px; display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 16px; color: #6B5330; font-weight: 900; letter-spacing: 1px;">{{ lang.t().hourLabel }}</div>
+            <div style="font-size: 20px; font-weight: 900; color: #6B5330; margin-top: 4px;">{{ lang.t().hourValue }}</div>
           </div>
         </div>
 
-        <div style="font-size: 13px; color: #6B5330; font-weight: 600; line-height: 2;">{{ lang.t().venue }}</div>
-        <div style="font-size: 13px; color: #7A6240; line-height: 2;">{{ lang.t().address }}</div>
+        <div style="font-size: 17px; color: #6B5330; font-weight: 900; line-height: 2;">{{ lang.t().venue }}</div>
+        <div style="font-size: 17px; color: #6B5330; font-weight: 900; line-height: 2;">{{ lang.t().address }}</div>
       </div>
     </div>
   </div>
