@@ -48,7 +48,7 @@ export class InvitationCardComponent implements OnInit {
     if (this.lang.isRtl()) {
       return {
         line1: 'على أنغام الفرح وتحت سماء تزينها السعادة بكل الحب يسر',
-        families: { right: 'ال فضو', left: 'ال الملحم' },
+        families: { right: 'اَل فضو', left: 'اَل الملحم' },
         line3: 'أن يدعوكم لحفل زفاف نجليهما',
       };
     }

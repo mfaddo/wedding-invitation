@@ -16,9 +16,23 @@
 
   <!-- Content Container -->
   <div class="hero__content">
-    <!-- Additional Details (shown on scroll or hover) -->
-    <div class="hero__details">
-      <div class="hero__top-date">{{ lang.t().invitationText }}</div>
+    <!-- Wedding Day Label and Date -->
+    <div class="hero__top-section">
+      <div class="hero__label">{{ lang.t().weddingDay }}</div>
+      <div class="hero__top-date">{{ lang.t().dateLine }}</div>
     </div>
+
+    <!-- Names - Main Focus -->
+    <div class="hero__names-container">
+      <h1
+        class="hero__names"
+        [style.fontFamily]="lang.fontHeading()"
+        [style.fontStyle]="lang.headingStyle()"
+      >
+        {{ lang.t().coupleNames }}
+      </h1>
+      <div class="hero__names-divider"></div>
+    </div>
+
   </div>
 </section>
